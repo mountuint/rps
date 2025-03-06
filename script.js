@@ -4,6 +4,18 @@ rockBtn.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
 });
 
+const paperBtn = document.querySelector("#paper-btn");
+
+paperBtn.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+});
+
+const scissorsBtn = document.querySelector("#scissors-btn");
+
+scissorsBtn.addEventListener("click", () => {
+  playRound("scissors", getComputerChoice());
+});
+
 const choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
