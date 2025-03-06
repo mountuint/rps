@@ -1,1 +1,5 @@
-console.log("hello")
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", () => {
+    console.log("dsadsada")
+})
