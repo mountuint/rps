@@ -1,4 +1,4 @@
-const gameState = document.querySelector("#game-state");
+const gameStateContainer = document.querySelector("#game-state-container");
 
 const rockBtn = document.querySelector("#rock-btn");
 const paperBtn = document.querySelector("#paper-btn");
@@ -7,28 +7,33 @@ const gameResult = document.querySelector("#game-result");
 const curCompScore = document.querySelector("#current-computer-score");
 const curHumanScore = document.querySelector("#current-human-score");
 const resetBtn = document.querySelector("#reset-btn");
+const curRoundResult = document.querySelector("#current-round-result")
 
 let humanScore = 0;
 let computerScore = 0;
 
 resetBtn.addEventListener("click", () => {
-  gameState.textContent = ""
+  gameResult.textContent = "";
+  curCompScore.textContent = "";
+  curHumanScore.textContent = "";
+  curRoundResult.textContent = "";
   computerScore = 0;
   humanScore = 0;
-})
+});
 
 rockBtn.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
 
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
-    gameState.textContent = "You win the game! Congratulations!";
+    gameResult.textContent = "You win the game! Congratulations!";
+    
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
-    gameState.textContent = "You lose the game!";
+    gameResult.textContent = "You lose the game!";
 
     computerScore = 0;
     humanScore = 0;
@@ -80,14 +85,14 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "rock") {
     console.log("Draw!");
-    gameState.textContent = "Draw";
+    curRoundResult.textContent = "Draw";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     console.log(`Human score is : ${humanScore}`);
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "rock" && computerChoice == "paper") {
     console.log("You lose! Paper beats rock");
-    gameState.textContent = "You lose! Paper beats rock";
+    curRoundResult.textContent = "You lose! Paper beats rock";
     computerScore++;
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
@@ -95,7 +100,7 @@ function playRound(humanChoice, computerChoice) {
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
     console.log("You win! Rock beats scissors");
-    gameState.textContent = "You win! Rock beats scissors";
+    curRoundResult.textContent = "You win! Rock beats scissors";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     humanScore++;
@@ -103,14 +108,14 @@ function playRound(humanChoice, computerChoice) {
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "paper" && computerChoice == "paper") {
     console.log("Draw!");
-    gameState.textContent = "Draw!";
+    curRoundResult.textContent = "Draw!";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     console.log(`Human score is : ${humanScore}`);
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "paper" && computerChoice == "rock") {
     console.log("You win! Paper beats rock");
-    gameState.textContent = "You win! Paper beats rock!";
+    curRoundResult.textContent = "You win! Paper beats rock!";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     humanScore++;
@@ -118,7 +123,7 @@ function playRound(humanChoice, computerChoice) {
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
     console.log("You lose! Scissors beats paper");
-    gameState.textContent = "You lose! Scissors beats paper";
+    curRoundResult.textContent = "You lose! Scissors beats paper";
     computerScore++;
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
@@ -126,14 +131,14 @@ function playRound(humanChoice, computerChoice) {
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "scissors" && computerChoice == "scissors") {
     console.log("Draw!");
-    gameState.textContent = "Draw!";
+    curRoundResult.textContent = "Draw!";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     console.log(`Human score is : ${humanScore}`);
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
     console.log("You lose! Rock beats scissors");
-    gameState.textContent = "You lose! Rock beats scissors";
+    curRoundResult.textContent = "You lose! Rock beats scissors";
     computerScore++;
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
@@ -141,7 +146,7 @@ function playRound(humanChoice, computerChoice) {
     curHumanScore.textContent = `Human score is : ${humanScore}`;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
     console.log("You win! Scissors beats paper");
-    gameState.textContent = "You win! Scissors beats paper";
+    curRoundResult.textContent = "You win! Scissors beats paper";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     humanScore++;
