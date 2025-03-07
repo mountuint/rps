@@ -3,25 +3,32 @@ const results = document.querySelector("#results-container");
 const rockBtn = document.querySelector("#rock-btn");
 const paperBtn = document.querySelector("#paper-btn");
 const scissorsBtn = document.querySelector("#scissors-btn");
-const result = document.querySelector("#result")
-const result1 = document.querySelector("#result1")
-const result2 = document.querySelector("#result2")
+const result = document.querySelector("#result");
+const result1 = document.querySelector("#result1");
+const result2 = document.querySelector("#result2");
+const resetBtn = document.querySelector("#reset-btn");
 
 let humanScore = 0;
 let computerScore = 0;
+
+resetBtn.addEventListener("click", () => {
+  results.textContent = ""
+  computerScore = 0;
+  humanScore = 0;
+})
 
 rockBtn.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
 
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
-    results.textContent = "You win the game! Congratulations!"
+    results.textContent = "You win the game! Congratulations!";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
-    results.textContent = "You lose the game!"
+    results.textContent = "You lose the game!";
 
     computerScore = 0;
     humanScore = 0;
@@ -33,13 +40,13 @@ paperBtn.addEventListener("click", () => {
 
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
-    results.textContent = "You win the game! Congratulations!"
+    results.textContent = "You win the game! Congratulations!";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
-    results.textContent = "You lose the game!"
+    results.textContent = "You lose the game!";
 
     computerScore = 0;
     humanScore = 0;
@@ -51,13 +58,13 @@ scissorsBtn.addEventListener("click", () => {
 
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
-    results.textContent = "You win the game! Congratulations!"
+    results.textContent = "You win the game! Congratulations!";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
-    results.textContent = "You lose the game!"
+    results.textContent = "You lose the game!";
 
     computerScore = 0;
     humanScore = 0;
