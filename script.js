@@ -23,13 +23,14 @@ resetBtn.addEventListener("click", () => {
 
 rockBtn.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
-  
+
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
     gameResult.textContent = "You win the game! Congratulations!";
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    rockBtn.disabled = true;
 
     humanScore = 0;
     computerScore = 0;
@@ -39,6 +40,7 @@ rockBtn.addEventListener("click", () => {
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    rockBtn.disabled = true;
 
     computerScore = 0;
     humanScore = 0;
@@ -54,6 +56,7 @@ paperBtn.addEventListener("click", () => {
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    paperBtn.disabled = true;
 
     humanScore = 0;
     computerScore = 0;
@@ -63,6 +66,7 @@ paperBtn.addEventListener("click", () => {
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    paperBtn.disabled = true;
 
     computerScore = 0;
     humanScore = 0;
@@ -78,6 +82,7 @@ scissorsBtn.addEventListener("click", () => {
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    scissorsBtn.disabled = true;
 
     humanScore = 0;
     computerScore = 0;
@@ -87,6 +92,7 @@ scissorsBtn.addEventListener("click", () => {
     curCompScore.textContent = "";
     curHumanScore.textContent = "";
     curRoundResult.textContent = "";
+    scissorsBtn.disabled = true;
 
     computerScore = 0;
     humanScore = 0;
