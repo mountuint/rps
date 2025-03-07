@@ -7,33 +7,38 @@ const gameResult = document.querySelector("#game-result");
 const curCompScore = document.querySelector("#current-computer-score");
 const curHumanScore = document.querySelector("#current-human-score");
 const resetBtn = document.querySelector("#reset-btn");
-const curRoundResult = document.querySelector("#current-round-result")
+const curRoundResult = document.querySelector("#current-round-result");
 
 let humanScore = 0;
 let computerScore = 0;
 
 resetBtn.addEventListener("click", () => {
-  gameResult.textContent = "";
   curCompScore.textContent = "";
   curHumanScore.textContent = "";
   curRoundResult.textContent = "";
+  gameResult.textContent = "";
   computerScore = 0;
   humanScore = 0;
 });
 
 rockBtn.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
-
+  
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
     gameResult.textContent = "You win the game! Congratulations!";
-    
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
     gameResult.textContent = "You lose the game!";
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     computerScore = 0;
     humanScore = 0;
@@ -46,12 +51,18 @@ paperBtn.addEventListener("click", () => {
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
     gameResult.textContent = "You win the game! Congratulations!";
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
     gameResult.textContent = "You lose the game!";
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     computerScore = 0;
     humanScore = 0;
@@ -64,12 +75,18 @@ scissorsBtn.addEventListener("click", () => {
   if (humanScore == 5) {
     console.log("You win the game! Congratulations!");
     gameResult.textContent = "You win the game! Congratulations!";
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore == 5) {
     console.log("You lose the game!");
     gameResult.textContent = "You lose the game!";
+    curCompScore.textContent = "";
+    curHumanScore.textContent = "";
+    curRoundResult.textContent = "";
 
     computerScore = 0;
     humanScore = 0;
@@ -85,7 +102,7 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "rock") {
     console.log("Draw!");
-    curRoundResult.textContent = "Draw";
+    curRoundResult.textContent = "Draw!";
     console.log(`Computer score is: ${computerScore}`);
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     console.log(`Human score is : ${humanScore}`);
