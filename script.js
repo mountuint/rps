@@ -1,9 +1,4 @@
-const gameStateContainer = document.querySelector("#game-state-container");
-
 const buttons = document.querySelector("#buttons");
-// const rockBtn = document.querySelector("#rock-btn");
-// const paperBtn = document.querySelector("#paper-btn");
-// const scissorsBtn = document.querySelector("#scissors-btn");
 const gameResult = document.querySelector("#game-result");
 const curCompScore = document.querySelector("#current-computer-score");
 const curHumanScore = document.querySelector("#current-human-score");
@@ -24,7 +19,6 @@ resetBtn.addEventListener("click", () => {
 
 buttons.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
-
   if (humanScore == 5) {
     gameResult.textContent = "You win the game! Congratulations!";
     curCompScore.textContent = "";
