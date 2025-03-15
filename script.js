@@ -100,47 +100,20 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice == "rock" && computerChoice == "rock") {
+  if (humanChoice == computerChoice) {
     curRoundResult.textContent = "Draw!";
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "rock" && computerChoice == "paper") {
-    curRoundResult.textContent = "You lose! Paper beats rock";
-    computerScore++;
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    curRoundResult.textContent = "You win! Rock beats scissors";
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
+  } else if ((humanChoice == "rock" && computerChoice == "scissors")
+    || (humanChoice == "paper" && computerChoice == "rock") 
+    || (humanChoice == "scissors") && (computerChoice == "paper")) {
+    curRoundResult.textContent = "You win!";
     humanScore++;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "paper" && computerChoice == "paper") {
-    curRoundResult.textContent = "Draw!";
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "paper" && computerChoice == "rock") {
-    curRoundResult.textContent = "You win! Paper beats rock!";
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
-    humanScore++;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    curRoundResult.textContent = "You lose! Scissors beats paper";
-    computerScore++;
+    } else {
+    curRoundResult.textContent = "You lose!";
     curCompScore.textContent = `Computer score is: ${computerScore}`;
     curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "scissors" && computerChoice == "scissors") {
-    curRoundResult.textContent = "Draw!";
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    curRoundResult.textContent = "You lose! Rock beats scissors";
-    computerScore++;
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    curRoundResult.textContent = "You win! Scissors beats paper";
-    curCompScore.textContent = `Computer score is: ${computerScore}`;
-    humanScore++;
-    curHumanScore.textContent = `Human score is : ${humanScore}`;
-  }
+    }
 }
